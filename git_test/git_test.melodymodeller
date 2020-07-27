@@ -62,9 +62,32 @@
           id="8ffcaa4d-f6b2-4881-8ed0-534607568a54" name="System Functions">
         <ownedSystemFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
             id="9250d168-2807-4aa6-a519-27b4f46b8cac" name="Root System Function">
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
+              id="e7e83bcd-aa00-4bbb-b78e-3a8229c6300a" name="SystemFunction 1">
+            <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
+                id="07b845df-f2bd-4eb6-8662-08e538e01ac3" name="FIP 1"/>
+            <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
+                id="902bb8b4-7230-4caa-9892-3497f5f608be" name="FIP 2"/>
+          </ownedFunctions>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
+              id="90518178-910c-45a9-992c-37f3cf66ed3e" name="SystemFunction 2">
+            <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                id="0f026672-bca2-4f05-9cd0-37fe0e624cc2" name="FOP 1"/>
+          </ownedFunctions>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.ctx:SystemFunction"
+              id="2810b80d-7669-4d2c-95f7-f25be8aa02f5" name="psokfpaoskd f">
+            <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                id="d599f527-2941-433b-b5d1-f9e9b51c47bb" name="FOP 1"/>
+          </ownedFunctions>
           <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
               id="51a9dfb9-b5af-42d3-b4e5-beb0693a980a" targetElement="#eb6615be-9c00-48b4-bf8b-5f4bf189d46b"
               sourceElement="#9250d168-2807-4aa6-a519-27b4f46b8cac"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="dc58ca98-54fd-465a-afc0-01b3996d293f" name="FunctionalExchange 1"
+              target="#07b845df-f2bd-4eb6-8662-08e538e01ac3" source="#0f026672-bca2-4f05-9cd0-37fe0e624cc2"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="833610f8-168a-423d-bb0f-7013f2a66bdb" name="FunctionalExchange 2"
+              target="#902bb8b4-7230-4caa-9892-3497f5f608be" source="#d599f527-2941-433b-b5d1-f9e9b51c47bb"/>
         </ownedSystemFunctions>
       </ownedFunctionPkg>
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.ctx:CapabilityPkg"
@@ -170,13 +193,27 @@
           id="ae439636-62d4-4da1-8cdc-22bb0a0830fd" name="Structure">
         <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="38cf9675-a21b-4cec-9e47-f65e9e6ebd98"
             name="System" abstractType="#90a4ee7a-e706-4755-ba24-18cea879d6d4"/>
+        <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="19a23344-b092-4dd7-8e3d-d3e564ff8ff8"
+            name="SA 2" abstractType="#7853d919-ac85-4c8b-b9e6-3794f3422c78"/>
         <ownedSystemComponents xsi:type="org.polarsys.capella.core.data.ctx:SystemComponent"
             id="90a4ee7a-e706-4755-ba24-18cea879d6d4" name="System">
+          <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+              id="7d528c7d-897b-44fb-8d7e-425868027225" targetElement="#90518178-910c-45a9-992c-37f3cf66ed3e"
+              sourceElement="#90a4ee7a-e706-4755-ba24-18cea879d6d4"/>
+          <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+              id="4cc756a7-b234-412c-ba24-b7c097f8b854" targetElement="#2810b80d-7669-4d2c-95f7-f25be8aa02f5"
+              sourceElement="#90a4ee7a-e706-4755-ba24-18cea879d6d4"/>
           <ownedStateMachines xsi:type="org.polarsys.capella.core.data.capellacommon:StateMachine"
               id="9d57c73f-f022-4d16-b291-d896eec591fb" name="System State Machine">
             <ownedRegions xsi:type="org.polarsys.capella.core.data.capellacommon:Region"
                 id="a92ad824-5c6b-4278-8902-440c724b054f" name="Default Region"/>
           </ownedStateMachines>
+        </ownedSystemComponents>
+        <ownedSystemComponents xsi:type="org.polarsys.capella.core.data.ctx:SystemComponent"
+            id="7853d919-ac85-4c8b-b9e6-3794f3422c78" name="SA 2" actor="true">
+          <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+              id="f1509619-d6ed-4d8d-831f-3f87e662f4df" targetElement="#e7e83bcd-aa00-4bbb-b78e-3a8229c6300a"
+              sourceElement="#7853d919-ac85-4c8b-b9e6-3794f3422c78"/>
         </ownedSystemComponents>
       </ownedSystemComponentPkg>
       <ownedMissionPkg xsi:type="org.polarsys.capella.core.data.ctx:MissionPkg" id="257f28aa-10fc-47f1-be9f-734756ee35d0"
